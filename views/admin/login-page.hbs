@@ -1,0 +1,86 @@
+{{!-- stylesheets --}}
+<link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/style2.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/style3.css" rel="stylesheet" type="text/css">
+<!-- Font special for pages-->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+    rel="stylesheet">
+
+<!-- Main CSS-->
+<link href="/stylesheets/add-post.css" rel="stylesheet">
+
+<div data-collapse="medium" data-animation="over-right" data-duration="400" data-no-scroll="1" data-doc-height="1"
+    class="navbar w-nav">
+    <div class="container w-container"><a href="/" aria-current="page"
+            class="logo-link-block align-left w-nav-brand w--current">
+            <!--<img src="images/Logo-3.svg" alt="" class="logo small">-->
+            <h1 class="brand" style="padding-top: .5em;"><span class="fname">Thrifty</span> Wheels</h1>
+        </a>
+        <nav role="navigation" class="nav-menu w-nav-menu"><a href="/add-post" aria-current="page"
+                class="nav-link w-nav-link w--current">Add post</a><a href="/about"
+                class="nav-link w-nav-link">About</a></nav>
+        <div class="menu-button w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+        </div>
+    </div>
+</div>
+
+<div style="padding-top: 2em;background-color: #081b27;" class="page-wrapper p-b-50">
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Login to admin panel</h2>
+            </div>
+            <div class="card-body">
+                {{#if loginErr}}
+                    <h4 style="color: red;font-weight: bold;text-align: center;">{{loginErr}}</h4>
+                {{/if}}
+                <form method="POST" action="/admin/login">
+                    <div class="form-row">
+                        <div class="name">Full name</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" name="name" placeholder="Full name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Email address</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-6" type="email" name="email" placeholder="example@email.com"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Secret code</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" name="code" placeholder="* * * *" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Secret IP</div>
+                        <div class="value">
+                            <input class="input--style-6" type="password" name="ip" placeholder="* * * *" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Password</div>
+                        <div class="value">
+                            <input class="input--style-6" type="password" name="password" placeholder="Password"
+                                required>
+                        </div>
+                    </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn--radius-2 btn--blue-2" type="submit">Send Application</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/javascript.js" type="text/javascript"></script>
+<script src="/js/add-post.js" type="text/javascript"></script>
+<script src="/js/javascript.js" type="text/javascript"></script>
