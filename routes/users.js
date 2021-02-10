@@ -14,8 +14,11 @@ router.get('/', function (req, res, next) {
   })
 });
 
-router.get('/about', function (req, res, next) {
-  res.render('user/about-page')
+router.get('/about', (req, res, next) => {
+  userFunctions.getRandomNumPosts(4).then(async (randomPosts) => {
+    let threePosts = await userFunctions.getRandomNumPosts(3);
+    res.render('user/about-page', { randomPosts, threePosts })
+  })
 });
 
 

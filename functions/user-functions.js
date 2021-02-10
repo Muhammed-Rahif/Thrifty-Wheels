@@ -63,5 +63,11 @@ module.exports = {
             allPosts = shuffleArray(allPosts);
             resolve(allPosts)
         })
+    },getRandomNumPosts: (num) => {
+        return new Promise(async (resolve, reject) => {
+            let fivePosts = await db.get().collection(collections.POSTS_COLLECTION).find({}).toArray();
+            fivePosts = getRandomObjectsByNumber(fivePosts, num);
+            resolve(fivePosts)
+        })
     }
 }
