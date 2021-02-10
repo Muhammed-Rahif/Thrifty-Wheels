@@ -69,5 +69,11 @@ module.exports = {
             fivePosts = getRandomObjectsByNumber(fivePosts, num);
             resolve(fivePosts)
         })
+    },
+    getPostDetails:(postId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let postDet = await db.get().collection(collections.POSTS_COLLECTION).findOne({postId:postId});
+            resolve(postDet);
+        })
     }
 }

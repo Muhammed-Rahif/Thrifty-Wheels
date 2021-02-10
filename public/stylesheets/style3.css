@@ -579,10 +579,9 @@ figcaption {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 340px;
+  width: 24em;
   height: 510px;
   border-radius: 10px;
-  background-image: url('https://d3e54v103j8qbb.cloudfront.net/img/example-bg.png');
   background-position: 50% 100%;
   background-size: cover;
   box-shadow: inset 0 1px 0 0 hsla(0, 0%, 100%, 0.2), 8px 8px 60px -10px rgba(0, 0, 0, 0.4);
@@ -590,7 +589,7 @@ figcaption {
 
 .header-title {
   max-width: 70%;
-  margin-top: 0px;
+  margin-top: 1em;
   margin-bottom: 0px;
   font-size: 68px;
   line-height: 60px;
@@ -598,7 +597,6 @@ figcaption {
 }
 
 .header-short-description {
-  margin-top: 10px;
   margin-bottom: 0px;
   font-size: 16px;
   line-height: 31px;
@@ -614,11 +612,10 @@ figcaption {
 }
 
 .header-info-title {
-  display: inline-block;
+  display: block;
 }
 
 .header-info-title.bold {
-  width: 86.8125px;
   margin-right: 10px;
   font-weight: 700;
 }
@@ -2239,9 +2236,6 @@ figcaption {
   }
   .header-short-description {
     line-height: 27px;
-  }
-  .header-info-item {
-    margin-top: 2px;
   }
   .button.view-more {
     padding-right: 20px;

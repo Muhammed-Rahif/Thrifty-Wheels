@@ -21,6 +21,13 @@ router.get('/about', (req, res, next) => {
   })
 });
 
+router.get('/view-post/:postId', (req, res) => {
+  let postId = req.params.postId;
+  userFunctions.getPostDetails(postId).then((postDet) => {
+    res.render('user/view-post-page' , { postDet })
+  })
+})
+
 
 
 module.exports = router;

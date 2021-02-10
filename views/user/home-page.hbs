@@ -1,7 +1,7 @@
 {{!-- stylesheets --}}
-<link href="stylesheets/style1.css" rel="stylesheet" type="text/css">
-<link href="stylesheets/style2.css" rel="stylesheet" type="text/css">
-<link href="stylesheets/style3.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/style2.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/style3.css" rel="stylesheet" type="text/css">
 {{!-- For rating stars --}}
 <style>
     .checked {
@@ -21,43 +21,38 @@
         }
     }
 </script>
-<script>
-    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-    observer.observe();
-</script>
 
 <div class="top-logo-bar"><a href="/" aria-current="page" class="logo-link-block w-nav-brand w--current">
         <!--<img src="images/Logo-3.svg" alt="" class="logo">-->
-        <h1 class="brand"><span class="fname">Thrifty</span> Wheels</h1>
+        <h1 class="brand poppins"><span class="fname poppins">Thrifty</span> Wheels</h1>
     </a></div>
 <div class="hero-section w-clearfix">
     <div class="hero-column">
         <div class="header-list-wrapper w-dyn-list">
             <div class="header-list w-dyn-items">
                 <div class="header-item w-dyn-item">
-                    <a data-w-id="630f3a6a-f505-0062-199f-5dbb8e37d22e" href="#"
-                        class="header-item-link-block w-inline-block">
+                    <a href="/view-post/{{allPosts.0.postId}}" class="header-item-link-block w-inline-block">
                         <div class="header-item-overlay">
                             <div class="item-titles-wrapper">
                                 <div class="highlight-item-content-block">
                                     <div class="large-rating-number"></div>
                                     <h1 class="large-item-title mobile-align-left">{{allPosts.0.mainTitle}}</h1>
-                                    <div class="info-wrapper large">
+                                    <div class="info-wrapper large poppins">
                                         <div class="info-block mobile-full"><img src="" alt=""
                                                 class="info-block-icon stars">
                                             <img class="info-block-icon stars"
-                                                src="gallery/stars-png/{{allPosts.0.starRating}}.png" alt="">
+                                                src="/gallery/stars-png/{{allPosts.0.starRating}}.png" alt="">
                                         </div>
                                         <div class="info-block"><img src="images/tag.svg" alt=""
                                                 class="info-block-icon">
-                                            <div class="info-title-link">{{allPosts.0.vehicleName}}</div>
+                                            <div class="info-title-link poppins">{{allPosts.0.vehicleName}}</div>
                                         </div>
                                         <div class="info-block"><img src="images/clock.svg" alt=""
                                                 class="info-block-icon">
                                             <div class="info-title">{{allPosts.0.postDate}}</div>
                                         </div>
                                     </div>
-                                    <p class="highlight-paragraph">{{allPosts.0.postDiscription}}
+                                    <p class="highlight-paragraph poppins">{{allPosts.0.postDiscription}}
                                     </p>
                                     <!--<div class="button outline-button hide-mobile">Read More</div>-->
                                 </div>
@@ -67,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item-image lozad" data-background-image="image.jpg"
+                        <div class="item-image " data-background-image="image.jpg"
                             style="background-image: url(/gallery/post-images/{{allPosts.0.postId}}.jpg) !important;">
 
                         </div>
@@ -83,18 +78,18 @@
         <div class="header-list-wrapper half w-dyn-list">
             <div class="header-list w-dyn-items">
                 <div class="header-item half w-dyn-item">
-                    <a data-w-id="021743dc-d730-0c7c-38ed-e8456ca0ff0b" href="#"
+                    <a data-w-id="021743dc-d730-0c7c-38ed-e8456ca0ff0b" href="/view-post/{{allPosts.1.postId}}"
                         class="header-item-link-block w-inline-block">
                         <div class="header-item-overlay">
                             <div class="item-titles-wrapper small">
                                 <div class="highlight-item-content-block full">
                                     <div class="large-rating-number small"></div>
                                     <h1 class="large-item-title medium">{{allPosts.1.mainTitle}}</h1>
-                                    <div class="info-wrapper large">
+                                    <div class="info-wrapper large poppins">
                                         <div class="info-block mobile-full"><img src="" alt=""
                                                 class="info-block-icon stars">
                                             <img class="info-block-icon stars"
-                                                src="gallery/stars-png/{{allPosts.1.starRating}}.png" alt="">
+                                                src="/gallery/stars-png/{{allPosts.1.starRating}}.png" alt="">
                                         </div>
                                         <div class="info-block"><img src="images/tag.svg" alt=""
                                                 class="info-block-icon">
@@ -113,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item-image lozad" data-background-image="image.jpg"
+                        <div class="item-image " data-background-image="image.jpg"
                             style="background-image: url(/gallery/post-images/{{allPosts.1.postId}}.jpg) !important;">
                         </div>
                     </a>
@@ -126,16 +121,16 @@
         <div class="header-list-wrapper second-half w-dyn-list">
             <div class="header-list w-dyn-items w-row">
                 <div class="header-item half w-dyn-item w-col w-col-6">
-                    <a data-w-id="26a2180a-b98c-0db1-b3a3-f0a6fe4784da" href="#"
+                    <a data-w-id="26a2180a-b98c-0db1-b3a3-f0a6fe4784da" href="/view-post/{{allPosts.2.postId}}"
                         class="header-item-link-block w-inline-block">
                         <div class="header-item-overlay">
                             <div class="item-titles-wrapper small">
-                                <div class="highlight-item-content-block full">
+                                <div class="highlight-item-content-block full poppins">
                                     <div class="large-rating-number small"></div>
                                     <h1 class="large-item-title medium mobile-small">{{allPosts.2.mainTitle}}</h1>
                                     <div class="info-wrapper large">
                                         <div class="info-block"><img
-                                                src="gallery/stars-png/{{allPosts.2.starRating}}.png" alt=""
+                                                src="/gallery/stars-png/{{allPosts.2.starRating}}.png" alt=""
                                                 class="info-block-icon stars"></div>
                                         <div class="info-block"><img src="images/tag.svg" alt=""
                                                 class="info-block-icon">
@@ -145,22 +140,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item-image lozad" data-background-image="image.jpg"
+                        <div class="item-image " data-background-image="image.jpg"
                             style="background-image: url(/gallery/post-images/{{allPosts.2.postId}}.jpg) !important;">
                         </div>
                     </a>
                 </div>
                 <div class="header-item half w-dyn-item w-col w-col-6">
-                    <a data-w-id="26a2180a-b98c-0db1-b3a3-f0a6fe4784da" href="#"
+                    <a data-w-id="26a2180a-b98c-0db1-b3a3-f0a6fe4784da" href="/view-post/{{allPosts.3.postId}}"
                         class="header-item-link-block w-inline-block">
                         <div class="header-item-overlay">
                             <div class="item-titles-wrapper small">
-                                <div class="highlight-item-content-block full">
+                                <div class="highlight-item-content-block full poppins">
                                     <div class="large-rating-number small"></div>
                                     <h1 class="large-item-title medium mobile-small">{{allPosts.3.mainTitle}}</h1>
                                     <div class="info-wrapper large">
                                         <div class="info-block"><img
-                                                src="gallery/stars-png/{{allPosts.3.starRating}}.png" alt=""
+                                                src="/gallery/stars-png/{{allPosts.3.starRating}}.png" alt=""
                                                 class="info-block-icon stars"></div>
                                         <div class="info-block"><img src="images/tag.svg" alt=""
                                                 class="info-block-icon">
@@ -170,7 +165,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item-image lozad" data-background-image="image.jpg" style="background-image: url(/gallery/post-images/{{allPosts.3.postId}}.jpg) !important;">
+                        <div class="item-image " data-background-image="image.jpg"
+                            style="background-image: url(/gallery/post-images/{{allPosts.3.postId}}.jpg) !important;">
                         </div>
                     </a>
                 </div>
@@ -186,10 +182,11 @@
     <div class="container w-container"><a href="/" aria-current="page"
             class="logo-link-block align-left w-nav-brand w--current">
             <!--<img src="images/Logo-3.svg" alt="" class="logo small">-->
-            <h1 class="brand"><span class="fname">Thrifty</span> Wheels</h1>
+            <h1 class="brand poppins"><span class="fname poppins">Thrifty</span> Wheels</h1>
         </a>
         <nav role="navigation" class="nav-menu w-nav-menu"><a href="/" aria-current="page"
-                class="nav-link w-nav-link w--current">Home</a><a href="/about" class="nav-link w-nav-link">About</a>
+                class="nav-link w-nav-link w--current poppins">Home</a><a href="/about"
+                class="nav-link w-nav-link">About</a>
         </nav>
         <div class="menu-button w-nav-button">
             <div class="w-icon-nav-menu"></div>
@@ -222,19 +219,23 @@
                             {{#each allPosts}}
                             <div class="item w-dyn-item w-col w-col-3" id="{{this.postId}}">
                                 <div class="item-block">
-                                    <a href="#" class="item-image-block poster-format w-inline-block lozad" data-background-image="image.jpg" style="background-image: url(/gallery/post-images/{{this.postId}}.jpg) !important;">
+                                    <a href="/view-post/{{this.postId}}"
+                                        class="item-image-block poster-format w-inline-block"
+                                        data-background-image="image.jpg"
+                                        style="background-image: url(/gallery/post-images/{{this.postId}}.jpg) !important;">
                                         <div class="item-number"></div>
                                         <div class="film-description">
-                                            <p>{{this.postDiscription}}</p>
+                                            <p style="overflow: hidden;text-overflow: ellipsis;max-height: 18em;" class="poppins">{{this.postDiscription}}</p>
                                         </div>
                                     </a>
                                     <img style="width: 7em;height: auto;"
-                                        src="gallery/stars-png/{{this.starRating}}.png" alt="">
-                                    <a href="#" class="item-block-title">{{this.mainTitle}}</a>
+                                        src="/gallery/stars-png/{{this.starRating}}.png" alt="">
+                                    <a href="/view-post/{{this.postId}}"
+                                        class="item-block-title poppins">{{this.mainTitle}}</a>
                                     <div class="info-wrapper small">
                                         <div class="info-block"><img src="images/tag.svg" alt=""
-                                                class="info-block-icon small">{{this.vehicleName}}<a href="#"
-                                                class="info-title-link"></a></div>
+                                                class="info-block-icon small poppins">{{this.vehicleName}}<a
+                                                href="/view-post/{{this.postId}}" class="info-title-link"></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -303,21 +304,21 @@
                         class="highlight-item-block">
                         <div class="higlight-item-overlay">
                             <div class="container w-container">
-                                <div class="highlight-item-content-block">
+                                <div class="highlight-item-content-block poppins">
                                     <div class="large-rating-number"></div>
                                     <h1 class="large-item-title">{{randomPost.mainTitle}}</h1>
                                     <div class="info-wrapper large">
                                         <!-- <div class="info-block"><img src="https://assets.website-files.com/59f5ae906a27c400013267f0/5c3d9ef28bb4597313e39aff_Stars-4.svg" alt="" class="info-block-icon stars"></div>-->
                                         <div class="info-block"><img src="images/tag.svg" alt=""
-                                                class="info-block-icon"><a href="#"
-                                                class="info-title-link">{{randomPost.vehicleName}}</a>
+                                                class="info-block-icon"><a href="/view-post/{{randomPost.postId}}"
+                                                class="info-title-link poppins">{{randomPost.vehicleName}}</a>
                                         </div>
                                         <div class="info-block"><img src="images/clock.svg" alt=""
                                                 class="info-block-icon">
-                                            <div class="info-title">{{randomPost.postDate}}</div>
+                                            <div class="info-title poppins">{{randomPost.postDate}}</div>
                                         </div>
                                     </div>
-                                    <p class="highlight-paragraph">{{randomPost.postDiscription}}</p>
+                                    <p class="highlight-paragraph poppins">{{randomPost.postDiscription}}</p>
                                     <!-- <a href="#" class="button outline-button white w-button">Read MOre</a></div>-->
                                     <div class="author-block bottom-right hide-mobile w-clearfix">
                                         <!-- <div class="author-image-block"></div>-->
@@ -346,14 +347,18 @@
                                 <div class="item w-dyn-item">
                                     <div class="item-block large">
                                         <a style="background-image: url('/gallery/post-images/{{fivePosts.0.postId}}.jpg') !important;"
-                                            href="#" class="item-image-block large w-inline-block">
+                                            href="/view-post/{{fivePosts.0.postId}}"
+                                            class="item-image-block large w-inline-block">
                                             <div class="item-number"></div>
-                                        </a><img src="" alt="" class="info-block-icon stars"><a href="#"
-                                            class="item-block-title large">{{fivePosts.0.mainTitle}}</a>
+                                        </a><img src="" alt="" class="info-block-icon stars"><a
+                                            href="/view-post/{{fivePosts.0.postId}}"
+                                            class="item-block-title large poppins">{{fivePosts.0.mainTitle}}</a>
                                         <div class="info-wrapper small">
                                             <div class="info-block"><img src="images/tag.svg" alt=""
-                                                    class="info-block-icon small"><a href="#"
-                                                    class="info-title-link">{{fivePosts.0.vehicleName}}</a></div>
+                                                    class="info-block-icon small"><a
+                                                    href="/view-post/{{fivePosts.0.postId}}"
+                                                    class="info-title-link poppins">{{fivePosts.0.vehicleName}}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -366,56 +371,72 @@
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
                                         <a style="background-image: url('/gallery/post-images/{{fivePosts.1.postId}}.jpg') !important;"
-                                            href="#" class="item-image-block w-inline-block">
+                                            href="/view-post/{{fivePosts.1.postId}}"
+                                            class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
-                                        </a><img src="" alt="" class="info-block-icon stars"><a href="#"
-                                            class="item-block-title">{{fivePosts.1.mainTitle}}</a>
+                                        </a><img src="" alt="" class="info-block-icon stars"><a
+                                            href="/view-post/{{fivePosts.1.postId}}"
+                                            class="item-block-title poppins">{{fivePosts.1.mainTitle}}</a>
                                         <div class="info-wrapper small">
                                             <div class="info-block"><img src="images/tag.svg" alt=""
-                                                    class="info-block-icon small"><a href="#"
-                                                    class="info-title-link">{{fivePosts.1.vehicleName}}</a></div>
+                                                    class="info-block-icon small"><a
+                                                    href="/view-post/{{fivePosts.1.postId}}"
+                                                    class="info-title-link poppins">{{fivePosts.1.vehicleName}}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
                                         <a style="background-image: url('/gallery/post-images/{{fivePosts.2.postId}}.jpg') !important;"
-                                            href="#" class="item-image-block w-inline-block">
+                                            href="/view-post/{{fivePosts.2.postId}}"
+                                            class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
-                                        </a><img src="" alt="" class="info-block-icon stars"><a href="#"
-                                            class="item-block-title">{{fivePosts.2.mainTitle}}</a>
+                                        </a><img src="" alt="" class="info-block-icon stars"><a
+                                            href="/view-post/{{fivePosts.2.postId}}"
+                                            class="item-block-title poppins">{{fivePosts.2.mainTitle}}</a>
                                         <div class="info-wrapper small">
                                             <div class="info-block"><img src="images/tag.svg" alt=""
-                                                    class="info-block-icon small"><a href="#"
-                                                    class="info-title-link">{{fivePosts.2.vehicleName}}</a></div>
+                                                    class="info-block-icon small"><a
+                                                    href="/view-post/{{fivePosts.2.postId}}"
+                                                    class="info-title-link poppins">{{fivePosts.2.vehicleName}}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
                                         <a style="background-image: url('/gallery/post-images/{{fivePosts.3.postId}}.jpg') !important;"
-                                            href="#" class="item-image-block w-inline-block">
+                                            href="/view-post/{{fivePosts.3.postId}}"
+                                            class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
-                                        </a><img src="" alt="" class="info-block-icon stars"><a href="#"
-                                            class="item-block-title">{{fivePosts.3.mainTitle}}</a>
+                                        </a><img src="" alt="" class="info-block-icon stars"><a
+                                            href="/view-post/{{fivePosts.3.postId}}"
+                                            class="item-block-title poppins">{{fivePosts.3.mainTitle}}</a>
                                         <div class="info-wrapper small">
                                             <div class="info-block"><img src="images/tag.svg" alt=""
-                                                    class="info-block-icon small"><a href="#"
-                                                    class="info-title-link">{{fivePosts.3.vehicleName}}</a></div>
+                                                    class="info-block-icon small"><a
+                                                    href="/view-post/{{fivePosts.3.postId}}"
+                                                    class="info-title-link poppins">{{fivePosts.3.vehicleName}}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
                                         <a style="background-image: url('/gallery/post-images/{{fivePosts.4.postId}}.jpg') !important;"
-                                            href="#" class="item-image-block w-inline-block">
+                                            href="/view-post/{{fivePosts.4.postId}}"
+                                            class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
-                                        </a><img src="" alt="" class="info-block-icon stars"><a href="#"
-                                            class="item-block-title">{{fivePosts.4.mainTitle}}</a>
+                                        </a><img src="" alt="" class="info-block-icon stars"><a
+                                            href="/view-post/{{fivePosts.4.postId}}"
+                                            class="item-block-title poppins">{{fivePosts.4.mainTitle}}</a>
                                         <div class="info-wrapper small">
                                             <div class="info-block"><img src="images/tag.svg" alt=""
-                                                    class="info-block-icon small"><a href="#"
-                                                    class="info-title-link">{{fivePosts.4.vehicleName}}</a></div>
+                                                    class="info-block-icon small"><a
+                                                    href="/view-post/{{fivePosts.4.postId}}"
+                                                    class="info-title-link poppins">{{fivePosts.4.vehicleName}}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -455,7 +476,7 @@
                                     </div>
                                 </div>
                                 <div class="short-bio-wrapper">
-                                    <p>
+                                    <p class="poppins">
                                         {{this.mainTitle}} ( {{this.vehicleName}} )
                                     </p>
                                     <!--<a href="#" class="button outline-button w-button">View my Reviews</a></div>-->
@@ -482,7 +503,7 @@
             <div class="footer-title">Discover</div><a href="all-reviews.html" class="footer-link">All Reviews</a><a href="author-picks.html" class="footer-link">Author Picks</a><a href="new-reviews.html" class="footer-link">New Reviews</a></div>
           -->
                         <div class="footer-column w-col w-col-12">
-                            <div class="footer-title">Social Connections</div>
+                            <div class="footer-title poppins">Social Connections</div>
                             <div class="social-media">
                                 <a href="./" target="_blank" class="footer-social-link w-inline-block">
                                     <div class="footer-social-title icon"></div>
@@ -499,11 +520,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bottom-footer-paragraph">Copyright © <a href="" target="_blank"
+                    <div class="bottom-footer-paragraph poppins">Copyright © <a href="" target="_blank"
                             style="text-decoration: none;color: #8f9da7;" class="bottom-footer-link"
                             onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='#8f9da7'">Muhammed
                             Rahif</a><br></div>
-                    <div class="bottom-footer-paragraph">Website design by <a href="" target="_blank"
+                    <div class="bottom-footer-paragraph poppins">Website design by <a href="" target="_blank"
                             class="bottom-footer-link" style="text-decoration: none;color: #8f9da7;"
                             onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='#8f9da7'">Muhammed
                             Rahif</a> </div>
@@ -512,4 +533,4 @@
                 </div>
             </div>
         </div>
-        <script src="js/javascript.js" type="text/javascript"></script>
+        <script src="/js/javascript.js" type="text/javascript"></script>
