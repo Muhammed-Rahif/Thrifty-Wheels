@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thrifty Wheels | Vehicle Review Website</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="icon" href="/images/TW.png">
@@ -23,7 +23,20 @@
 </head>
 
 <body>
-  {{{body}}}
+  <!-- Loading square for squar.red network -->
+  <div id="loader-wrapper" class="loader-wrapper">
+    <span class="loader" id="loader"><span class="loader-inner"></span></span>
+  </div>
+  <div id="body">
+    {{{body}}}
+  </div>
+  <script>
+    $('#body').hide();
+    $(window).on('load', () => {
+      $('#loader-wrapper').fadeOut('slow');
+      $('#body').fadeIn(3000);
+    })
+  </script>
 </body>
 
 </html>
