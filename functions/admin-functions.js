@@ -82,5 +82,17 @@ module.exports = {
                 resolve();
             })
         })
+    },
+    getAllPosts:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let allPosts = await db.get().collection(collections.POSTS_COLLECTION).find({}).toArray();
+            resolve(allPosts);
+        })
+    },
+    getPost:(postId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let post = await db.get().collection(collections.POSTS_COLLECTION).findOne({postId:postId});
+            resolve(post);
+        })
     }
 }

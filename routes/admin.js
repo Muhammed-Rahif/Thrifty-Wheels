@@ -2,19 +2,30 @@ var express = require('express');
 var router = express.Router();
 var adminFunctions = require('../functions/admin-functions');
 const { v4: uuidv4 } = require('uuid');
+const sharp = require('sharp');
 
 var verifyAdminLogin = (req, res, next) => {
     let userLogged = req.session.user;
     if (userLogged) {
         next();
     } else {
-        res.redirect('/admin');
+        res.redirect('/admin/login');
     }
 }
 
-router.get('/', (req, res, next) => {
+router.get('/', verifyAdminLogin, async (req, res, next) => {
+    let allPosts = await adminFunctions.getAllPosts();
+    res.render('admin/view-posts', { allPosts });
+});
+
+router.get('/login', (req, res, next) => {
     res.render('admin/login-page');
 });
+
+router.post('/get-post-det', async (req, res) => {
+    let post = await adminFunctions.getPost(req.body.postId);
+    res.json(post);
+})
 
 router.post('/login', (req, res) => {
     let reqData = req.body;
@@ -22,7 +33,7 @@ router.post('/login', (req, res) => {
         if (response.loginStatus === true) {
             req.session.user = {};
             req.session.user.data = reqData;
-            res.redirect('/admin/add-post');
+            res.redirect('/admin');
         } else {
             res.render('admin/login-page', { loginErr: response.loginStatus })
         }
@@ -46,13 +57,23 @@ router.post('/add-post', (req, res) => {
         let image = req.files.postImg;
         image.mv(`./public/gallery/post-images/${postData.postId}.jpg`, (err, done) => {
             if (!err) {
-                res.render('admin/add-post-page' , { postAdded:"Post added successfully..!" })
+                sharp(`./public/gallery/post-images/${postData.postId}.jpg`)
+                    .resize(320, 240)
+                    .toFile(`./public/gallery/post-thumbnails/${postData.postId}.jpg`, (err, info) => {
+                        if (!err) {
+                            console.log(info);
+                        } else {
+                            console.log(err);
+                        }
+                    });
+                res.render('admin/add-post-page', { postAdded: "Post added successfully..!" })
             } else {
                 console.error(err)
             }
         })
     })
 });
+
 
 
 module.exports = router;

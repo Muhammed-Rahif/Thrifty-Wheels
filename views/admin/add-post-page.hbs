@@ -23,12 +23,12 @@
 
 <div data-collapse="medium" data-animation="over-right" data-duration="400" data-no-scroll="1" data-doc-height="1"
     class="navbar w-nav">
-    <div class="container w-container"><a href="/" aria-current="page"
+    <div class="container w-container"><a href="/admin" aria-current="page"
             class="logo-link-block align-left w-nav-brand w--current">
             <!--<img src="images/Logo-3.svg" alt="" class="logo small">-->
             <h1 style="padding-top: .5em;" class="brand"><span class="fname">Thrifty</span> Wheels</h1>
         </a>
-        <nav role="navigation" class="nav-menu w-nav-menu"><a href="/" aria-current="page"
+        <nav role="navigation" class="nav-menu w-nav-menu"><a href="/admin" aria-current="page"
                 class="nav-link w-nav-link w--current">Home</a><a href="/about" class="nav-link w-nav-link">About</a>
         </nav>
         <div class="menu-button w-nav-button">
@@ -43,20 +43,22 @@
                 <h2 class="title">Add a post..!</h2>
             </div>
             <div class="card-body">
-                <form method="POST" action="/admin/add-post" enctype="multipart/form-data">
+                <form method="POST" action="/admin/add-post" enctype="multipart/form-data" autocomplete="off">
                     <div class="form-row">
                         <div class="name">Main title</div>
                         <div class="value">
                             <input class="input--style-6" placeholder="Main title" type="text" name="mainTitle"
-                                required>
+                                maxlength="14" required>
+                            <div class="label--desc">Maximum 14 letters !</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="name">Vehicle fullname</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-6" type="text" placeholder="Vehicle fullname" name="vehicleName"
-                                    required>
+                                <input class="input--style-6" type="text" placeholder="Vehicle fullname"
+                                    name="vehicleName" maxlength="25" required>
+                                <div class="label--desc">Maximum 25 letters !</div>
                             </div>
                         </div>
                     </div>
@@ -65,7 +67,8 @@
                         <div class="value">
                             <div class="input-group">
                                 <textarea class="textarea--style-6" name="postDiscription"
-                                    placeholder="Discription here"></textarea>
+                                    placeholder="Discription here" maxlength="1400"></textarea>
+                                <div class="label--desc">Maximum 1400 letters !</div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +100,8 @@
                                 <span id="4star" onclick="ratingStar(this.id);" class="fa fa-star fa-2x"></span>
                                 <span id="5star" onclick="ratingStar(this.id);" class="fa fa-star fa-2x"></span>
                             </div>
-                            <div class="label--desc">Remember, You can only change this post rating at this moment!</div>
+                            <div class="label--desc">Remember, You can only change this post rating at this moment!
+                            </div>
                         </div>
                     </div>
             </div>
