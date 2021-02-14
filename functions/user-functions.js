@@ -53,8 +53,11 @@ module.exports = {
     getRandomFivePosts: () => {
         return new Promise(async (resolve, reject) => {
             let fivePosts = await db.get().collection(collections.POSTS_COLLECTION).find({}).toArray();
-            fivePosts = getRandomObjectsByNumber(fivePosts, 5);
-            resolve(fivePosts)
+            if (fivePosts.length>=6) {
+                fivePosts = getRandomObjectsByNumber(fivePosts, 5);
+            } else {
+                resolve(fivePosts)
+            }
         })
     },
     getShufflePosts:()=>{
@@ -65,9 +68,12 @@ module.exports = {
         })
     },getRandomNumPosts: (num) => {
         return new Promise(async (resolve, reject) => {
-            let fivePosts = await db.get().collection(collections.POSTS_COLLECTION).find({}).toArray();
-            fivePosts = getRandomObjectsByNumber(fivePosts, num);
-            resolve(fivePosts)
+            let allPosts = await db.get().collection(collections.POSTS_COLLECTION).find({}).toArray();
+            if (allPosts.length>=num+1) {
+                allPosts = getRandomObjectsByNumber(allPosts, num);
+            } else {
+                resolve(allPosts)
+            }
         })
     },
     getPostDetails:(postId)=>{

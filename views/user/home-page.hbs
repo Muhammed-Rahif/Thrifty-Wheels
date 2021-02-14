@@ -22,6 +22,7 @@
     }
 </script>
 
+{{#if allPosts}}
 <div class="top-logo-bar"><a href="/" aria-current="page" class="logo-link-block w-nav-brand w--current">
         <!--<img src="images/Logo-3.svg" alt="" class="logo">-->
         <h1 class="brand poppins"><span class="fname poppins">Thrifty</span> Wheels</h1>
@@ -177,6 +178,7 @@
         </div>
     </div>
 </div>
+{{/if}}
 <div data-collapse="medium" data-animation="over-right" data-duration="400" data-no-scroll="1" data-doc-height="1"
     class="navbar w-nav">
     <div class="container w-container"><a href="/" aria-current="page"
@@ -193,6 +195,7 @@
         </div>
     </div>
 </div>
+{{#if allPosts}}
 <div class="section">
     <div class="container w-container">
         <div class="section-title-wrapper align-left">
@@ -225,7 +228,8 @@
                                         style="background-image: url(/gallery/post-thumbnails/{{this.postId}}.jpg) !important;">
                                         <div class="item-number"></div>
                                         <div class="film-description">
-                                            <p style="overflow: hidden;text-overflow: ellipsis;max-height: 16em;" class="poppins">{{this.postDiscription}}</p>
+                                            <p style="overflow: hidden;text-overflow: ellipsis;max-height: 16em;"
+                                                class="poppins">{{this.postDiscription}}</p>
                                         </div>
                                     </a>
                                     <img style="width: 7em;height: auto;"
@@ -488,6 +492,11 @@
                 </div>
             </div>
         </div>
+        {{else}}
+        <div style="min-height: 20vh;min-width: 100vw;display: flex;align-items: center;justify-content: center;background-color: #081b27;" class="poppins">
+            <h1 style="text-align: center;color: white;font-weight: bold;border-bottom: 1px black solid;">No posts</h1>
+        </div>
+        {{/if}}
         <div class="section footer">
             <!--<div class="container w-container">
       <div class="footer-wrapper">
