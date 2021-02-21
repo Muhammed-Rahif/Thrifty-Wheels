@@ -74,6 +74,35 @@ router.post('/add-post', (req, res) => {
     })
 });
 
+router.get('/edit-post/:postId',verifyAdminLogin,(req,res)=>{
+    let postId = req.params.postId;
+    adminFunctions.getPost(postId).then((post)=>{
+        res.render('admin/edit-post-page',{ post })
+    })
+})
+
+router.post('/edit-post', (req, res) => {
+    let postData = req.body;
+    adminFunctions.updatePost(postData).then(() => {
+        let image = req.files.postImg;
+        image.mv(`./public/gallery/post-images/${postData.postId}.jpg`, (err, done) => {
+            if (!err) {
+                sharp(`./public/gallery/post-images/${postData.postId}.jpg`)
+                    .resize(320, 240)
+                    .toFile(`./public/gallery/post-thumbnails/${postData.postId}.jpg`, (err, info) => {
+                        if (!err) {
+                            console.log(info);
+                        } else {
+                            console.log(err);
+                        }
+                    });
+                res.redirect('/admin')
+            } else {
+                console.error(err)
+            }
+        })
+    })
+});
 
 
 module.exports = router;

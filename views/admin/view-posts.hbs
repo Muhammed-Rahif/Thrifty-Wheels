@@ -90,8 +90,11 @@
                             alt="No Image">
                     </td>
                     <td class='select'>
-                        <a class='button' onclick="getPostDet('{{this.postId}}');">
+                        <a class='button toggleSidebar' onclick="getPostDet('{{this.postId}}');">
                             View
+                        </a>
+                        <a style="background-color: #0d6efd;" class='button' href="/admin/edit-post/{{this.postId}}">
+                            Edit
                         </a>
                     </td>
                 </tr>
@@ -164,7 +167,7 @@
     }
 </script>
 <script>
-    $('.button, .close').on('click', function (e) {
+    $('.toggleSidebar, .close').on('click', function (e) {
         e.preventDefault();
         $('.detail, #table-wrapper').toggleClass('open');
     });

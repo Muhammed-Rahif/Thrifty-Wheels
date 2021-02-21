@@ -94,5 +94,19 @@ module.exports = {
             let post = await db.get().collection(collections.POSTS_COLLECTION).findOne({postId:postId});
             resolve(post);
         })
+    },updatePost:(postData)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.POSTS_COLLECTION).updateOne({postId:postData.postId},{
+                $set:{
+                    mainTitle:postData.mainTitle,
+                    vehicleName:postData.vehicleName,
+                    postDiscription:postData.postDiscription,
+                    postDate:postData.postDate,
+                    starRating:postData.starRating
+                }
+            }).then((data)=>{
+                resolve();
+            })
+        })
     }
 }

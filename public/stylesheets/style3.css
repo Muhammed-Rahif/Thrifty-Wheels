@@ -626,7 +626,7 @@ figcaption {
   border-radius: 4px;
   background-color: #263947;
   -webkit-transition: background-color 200ms ease, border 200ms ease, background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
-  transition: background-color 200ms ease, border 200ms ease, background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+  transition: background-color .5s ease, border 200ms ease, background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
   font-size: 13px;
   line-height: 30px;
   font-weight: 800;
@@ -635,8 +635,8 @@ figcaption {
 }
 
 .button:hover {
-  background-color: #3f5666;
   color: #fff;
+  opacity: .68;
   text-decoration: none;
 }
 
