@@ -106,7 +106,7 @@
                     </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn--radius-2 btn--blue-2" type="submit">Post..!</button>
+                <button class="btn btn--radius-2 btn--blue-2" id="submitForm" type="submit">Post..!</button>
             </div>
             </form>
         </div>
@@ -163,4 +163,14 @@
         }
         document.getElementById('ratingInput').value = `${star}star`;
     }
+    function checkInputFile() {
+        if (document.getElementById("file").files.length == 0) {
+            alert("Please update the image file ( Required..! )");
+        }
+    }
+</script>
+<script>
+    $('#submitForm').hover(()=>{
+        checkInputFile();
+    })
 </script>

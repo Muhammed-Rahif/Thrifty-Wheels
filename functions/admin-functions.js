@@ -94,7 +94,8 @@ module.exports = {
             let post = await db.get().collection(collections.POSTS_COLLECTION).findOne({postId:postId});
             resolve(post);
         })
-    },updatePost:(postData)=>{
+    },
+    updatePost:(postData)=>{
         return new Promise((resolve,reject)=>{
             db.get().collection(collections.POSTS_COLLECTION).updateOne({postId:postData.postId},{
                 $set:{
@@ -106,6 +107,12 @@ module.exports = {
                 }
             }).then((data)=>{
                 resolve();
+            })
+        })
+    },deletePost:(postId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.POSTS_COLLECTION).removeOne({postId:postId}).then(()=>{
+                resolve({status:true});
             })
         })
     }

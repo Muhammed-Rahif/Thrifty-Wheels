@@ -3,6 +3,7 @@ var router = express.Router();
 var adminFunctions = require('../functions/admin-functions');
 const { v4: uuidv4 } = require('uuid');
 const sharp = require('sharp');
+const fs = require('fs');
 
 var verifyAdminLogin = (req, res, next) => {
     let userLogged = req.session.user;
@@ -11,6 +12,17 @@ var verifyAdminLogin = (req, res, next) => {
     } else {
         res.redirect('/admin/login');
     }
+}
+
+function delFile(path) {
+    fs.unlink(path, (err) => {
+        if (err) {
+            console.error(err)
+            return;
+        }else{
+            console.log(path+' : file removed');
+        }
+    })
 }
 
 router.get('/', verifyAdminLogin, async (req, res, next) => {
@@ -103,6 +115,15 @@ router.post('/edit-post', (req, res) => {
         })
     })
 });
+
+router.post('/delete-post',(req,res)=>{
+    let postId = req.body.postId;
+    adminFunctions.deletePost(postId).then((response)=>{
+        delFile(`./public/gallery/post-images/${postId}.jpg`)
+        delFile(`./public/gallery/post-thumbnails/${postId}.jpg`)
+        res.json(response);
+    })
+})
 
 
 module.exports = router;
