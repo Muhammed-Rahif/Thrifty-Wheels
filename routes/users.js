@@ -23,11 +23,27 @@ router.get('/about', (req, res, next) => {
 
 router.get('/view-post/:postId', (req, res) => {
   let postId = req.params.postId;
-  userFunctions.getPostDetails(postId).then((postDet) => {
-    res.render('user/view-post-page' , { postDet })
+  userFunctions.getPostDetails(postId).then(async(postDet) => {
+    let allReviews = await userFunctions.getPostReviews(postId);
+    res.render('user/view-post-page' , { postDet , allReviews })
   })
 })
 
+
+router.post('/post-review',(req,res)=>{
+  let reviewData = req.body;
+  console.log(reviewData);
+  userFunctions.addReview(reviewData).then(()=>{
+    res.json({status:true})
+  })
+})
+
+router.post('/get-post-reviews',(req,res)=>{
+  let postId = req.body.postId;
+  userFunctions.getPostReviews(postId).then((postData)=>{
+    res.json(postData);
+  })
+})
 
 
 module.exports = router;

@@ -1,7 +1,7 @@
 var db = require('../config/connection');
 var collections = require('../config/collections');
 var Promise = require('promise');
-const { resolve, reject } = require('promise');
+const { resolve, reject, all } = require('promise');
 var moment = require('moment');
 
 
@@ -80,6 +80,19 @@ module.exports = {
         return new Promise(async(resolve,reject)=>{
             let postDet = await db.get().collection(collections.POSTS_COLLECTION).findOne({postId:postId});
             resolve(postDet);
+        })
+    },
+    addReview:(reviewData)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.REVIEW_COLLECTION).insertOne(reviewData).then(()=>{
+                resolve();
+            })
+        })
+    },
+    getPostReviews:(postId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let allReviews = await db.get().collection(collections.REVIEW_COLLECTION).find({postId:postId}).toArray();
+            resolve(allReviews)
         })
     }
 }

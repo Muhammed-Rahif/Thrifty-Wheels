@@ -1,0 +1,57 @@
+.review-section{
+    min-width: 100vw;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #081b27;
+}
+.reviews-section{
+    margin-top: 4em;
+    background: rgba(12, 39, 56, 0.45);
+}
+#reviewArea{
+    resize: vertical;
+    outline: none;
+    background: rgba(12, 39, 56, 0.45);
+    color: white;
+    width: 75vw;
+}
+.input-area{
+    display: flex;
+    justify-content: center;
+}
+.review-header{
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+.btn{
+    margin-top: 1em;
+    padding: 8px 6px 8px 6px;
+    background: #0c2738;
+    color: white;
+    border-radius: 4px;
+    transition: 0.5s;
+    display: flex;
+    justify-self: right;
+}
+.btn:hover{
+    opacity: .6;
+}
+.btn:active{
+    background: lightgreen;
+}
+.submit-area{
+    display: flex;
+    justify-content: center;
+}
+.content-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    max-width: 75vw;
+    margin: auto;
+}
+.user-det{
+    min-width: 8vw;
+}

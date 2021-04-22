@@ -2,6 +2,7 @@
 <link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
 <link href="/stylesheets/style2.css" rel="stylesheet" type="text/css">
 <link href="/stylesheets/style3.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/view-post-page.css" rel="stylesheet" type="text/css">
 {{!-- For rating stars --}}
 <style>
     .checked {
@@ -16,8 +17,9 @@
         <div class="container w-container"><a href="/" class="logo-link-block align-left w-nav-brand">
                 <h1 class="brand poppins"><span class="fname poppins">Thrifty</span> Wheels</h1>
             </a>
-            <nav role="navigation" class="nav-menu w-nav-menu poppins"><a href="/" class="nav-link w-nav-link">Home</a><a
-                    href="/about" class="nav-link w-nav-link poppins">About</a></nav>
+            <nav role="navigation" class="nav-menu w-nav-menu poppins"><a href="/"
+                    class="nav-link w-nav-link">Home</a><a href="/about" class="nav-link w-nav-link poppins">About</a>
+            </nav>
             <div class="menu-button w-nav-button">
                 <div class="w-icon-nav-menu"></div>
             </div>
@@ -51,10 +53,107 @@
             </div>
                 </div>-->
                 <p class="header-short-description poppins">{{postDet.postDiscription}}</p>
-                <img style="width: 7em;height: auto;margin-top: 1em;" class="info-block-icon stars" src="/gallery/stars-png/{{postDet.starRating}}.png" alt="">
+                <img style="width: 7em;height: auto;margin-top: 1em;" class="info-block-icon stars"
+                    src="/gallery/stars-png/{{postDet.starRating}}.png" alt="">
             </div>
         </div>
     </div>
 </div>
 
+<div class="review-section">
+    <div class="inner-review">
+        <div class="post-review-section">
+            <div class="review-header">
+                <h4>Post a review..!</h4>
+            </div>
+            <hr style="max-width: 18vw;background: white;">
+            <div class="input-area">
+                <textarea name="userReview" id="reviewArea" rows="10" placeholder="Type your review here..!"></textarea>
+            </div>
+            <div class="submit-area">
+                <button class="btn" onclick="postReview();">Post review!</button>
+            </div>
+        </div>
+        <div class="reviews-section">
+            <div class="user-review">
+                <div class="review-header">
+                    <h4 style="margin-top: 3em;">Posted reviews..</h4>
+                </div>
+                <hr style="max-width: 18vw;background: white;margin-bottom: 3em;">
+                <div style="margin-bottom: 3em;" class="reviews-area">
+                    {{#if allReviews}}
+                    {{#each allReviews}}
+                    <div class="content-area">
+                        <div class="user-det">
+                            <p>{{this.user}} : </p>
+                        </div>
+                        <div class="text-area">
+                            <p style="max-width: 75vw;">{{this.userReview}}</p>
+                        </div>
+                    </div>
+                    <hr style="max-width: 4vw;background: white;margin-bottom: 1em;margin-top: 1em;opacity: .25;">
+                    {{/each}}
+                    {{else}}
+                    <hr style="max-width: 18vw;background: white;">
+                    <p style="color: white;text-align: center;">No reviews found..!</p>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function postReview() {
+        let userReview = $('#reviewArea').val();
+        if (userReview === "" || userReview === null) {
+            alert('Type something in review box and submit..!')
+        } else {
+            $.ajax({
+                url: "/post-review",
+                data: {
+                    userReview: userReview,
+                    postId: '{{postDet.postId}}',
+                    user: '_USERDATA_'
+                },
+                method: 'post',
+                success: function (response) {
+                    if (response.status) {
+                        $('#reviewArea').val(null);
+                        alert(`Post added successfully.!`);
+                        getPostReviews();
+                    } else {
+                        alert('Something went wrong..!');
+                    }
+                }
+            });
+        }
+    }
+
+
+    function getPostReviews() {
+        $.ajax({
+            url: "/get-post-reviews",
+            data: {
+                postId: '{{postDet.postId}}'
+            },
+            method: 'post',
+            success: function (allReviews) {
+                $('.reviews-area').empty();
+                allReviews.forEach((itm, key) => {
+                    $('.reviews-area').append(`
+                        <div class="content-area">
+                        <div class="user-det">
+                            <p>${itm.user} : </p>
+                        </div>
+                        <div class="text-area">
+                            <p style="max-width: 75vw;">${itm.userReview}</p>
+                        </div>
+                        </div>
+                        <hr style="max-width: 4vw;background: white;margin-bottom: 1em;margin-top: 1em;opacity: .25;">
+                    `)
+                })
+            }
+        });
+    }
+</script>
 <script src="/js/javascript.js" type="text/javascript"></script>
