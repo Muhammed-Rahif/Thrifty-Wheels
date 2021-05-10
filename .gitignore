@@ -1,2 +1,3 @@
-public/gallery/post-images/
-public/gallery/post-thumbnails/
+/public/gallery/post-images/
+/public/gallery/post-thumbnails/
+/node_modules
