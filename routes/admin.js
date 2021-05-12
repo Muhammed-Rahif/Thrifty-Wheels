@@ -20,7 +20,7 @@ router.get("/", verifyAdminLogin, async (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-  if (req.session.admin) {
+  if (req.session.adminLogged) {
     res.redirect("/admin");
   } else {
     res.render("admin/login-page");
@@ -47,11 +47,11 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/add-post", verifyAdminLogin, (req, res) => {
-  let adminLogged = req.session.admin;
+  let adminLogged = req.session.adminLogged;
   if (adminLogged) {
     res.render("admin/add-post-page");
   } else {
-    res.redirect("/admin/");
+    res.redirect("/admin");
   }
 });
 
