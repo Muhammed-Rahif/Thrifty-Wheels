@@ -6,8 +6,8 @@ const sharp = require("sharp");
 const fs = require("fs");
 
 var verifyAdminLogin = (req, res, next) => {
-  let userLogged = req.session.user;
-  if (userLogged) {
+  let adminLogged = req.session.admin;
+  if (adminLogged) {
     next();
   } else {
     res.redirect("/admin/login");
@@ -21,7 +21,11 @@ router.get("/", verifyAdminLogin, async (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("admin/login-page");
+  if (req.session.admin) {
+    res.redirect("/admin");
+  } else {
+    res.render("admin/login-page");
+  }
 });
 
 router.post("/get-post-det", async (req, res) => {
@@ -33,8 +37,8 @@ router.post("/login", (req, res) => {
   let reqData = req.body;
   adminFunctions.adminLogin(reqData).then((response) => {
     if (response.loginStatus === true) {
-      req.session.user = {};
-      req.session.user.data = reqData;
+      req.session.admin = {};
+      req.session.admin.data = reqData;
       res.redirect("/admin");
     } else {
       res.render("admin/login-page", { loginErr: response.loginStatus });
@@ -43,8 +47,8 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/add-post", verifyAdminLogin, (req, res) => {
-  let userLogged = req.session.user;
-  if (userLogged) {
+  let adminLogged = req.session.admin;
+  if (adminLogged) {
     res.render("admin/add-post-page");
   } else {
     res.redirect("/admin/");
