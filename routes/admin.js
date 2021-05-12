@@ -6,7 +6,7 @@ const sharp = require("sharp");
 const fs = require("fs");
 
 var verifyAdminLogin = (req, res, next) => {
-  let adminLogged = req.session.admin;
+  let adminLogged = req.session.adminLogged;
   if (adminLogged) {
     next();
   } else {
@@ -38,6 +38,7 @@ router.post("/login", (req, res) => {
   adminFunctions.adminLogin(reqData).then((response) => {
     if (response.loginStatus === true) {
       req.session.admin = {};
+      req.session.adminLogged = true;
       req.session.admin.data = reqData;
       res.redirect("/admin");
     } else {
