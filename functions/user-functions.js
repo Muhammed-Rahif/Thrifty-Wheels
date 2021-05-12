@@ -66,11 +66,13 @@ module.exports = {
             allPosts = shuffleArray(allPosts);
             resolve(allPosts)
         })
-    },getRandomNumPosts: (num) => {
+    },
+    getRandomNumPosts: (num) => {
         return new Promise(async (resolve, reject) => {
             let allPosts = await db.get().collection(collections.POSTS_COLLECTION).find({}).toArray();
             if (allPosts.length>=num+1) {
                 allPosts = getRandomObjectsByNumber(allPosts, num);
+                resolve(allPosts)
             } else {
                 resolve(allPosts)
             }
