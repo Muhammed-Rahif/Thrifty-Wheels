@@ -572,9 +572,6 @@ textarea {
   }
 }
 
-.input-file {
-  display: none;
-}
 
 .input-file + label {
   font-size: 15px;

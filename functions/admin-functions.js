@@ -103,7 +103,8 @@ module.exports = {
                     vehicleName:postData.vehicleName,
                     postDiscription:postData.postDiscription,
                     postDate:postData.postDate,
-                    starRating:postData.starRating
+                    starRating:postData.starRating,
+                    postImg:postData.postImg,
                 }
             }).then((data)=>{
                 resolve();

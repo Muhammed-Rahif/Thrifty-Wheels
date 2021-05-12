@@ -36,7 +36,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
 
 // Use the session middleware
-app.use(session({ secret: 'secret key', cookie: { maxAge: 600000 }}))
+app.use(
+  session({
+    secret: "secret key",
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 15 },
+  })
+);
 
 // MongoDB connects
 db.connect((err) => {

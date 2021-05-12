@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="item-image " data-background-image="image.jpg"
-                            style="background-image: url(/gallery/post-images/{{allPosts.0.postId}}.jpg) !important;">
+                            style="background-image: url(data:{{allPosts.0.postImg.type}};base64,{{allPosts.0.postImg.data}}) !important;">
 
                         </div>
                     </a>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="item-image " data-background-image="image.jpg"
-                            style="background-image: url(/gallery/post-images/{{allPosts.1.postId}}.jpg) !important;">
+                            style="background-image: url(data:{{allPosts.1.postImg.type}};base64,{{allPosts.1.postImg.data}}) !important;">
                         </div>
                     </a>
                 </div>
@@ -142,7 +142,7 @@
                             </div>
                         </div>
                         <div class="item-image " data-background-image="image.jpg"
-                            style="background-image: url(/gallery/post-images/{{allPosts.2.postId}}.jpg) !important;">
+                            style="background-image: url(data:{{allPosts.2.postImg.type}};base64,{{allPosts.2.postImg.data}}) !important;">
                         </div>
                     </a>
                 </div>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="item-image " data-background-image="image.jpg"
-                            style="background-image: url(/gallery/post-images/{{allPosts.3.postId}}.jpg) !important;">
+                            style="background-image: url(data:{{allPosts.3.postImg.type}};base64,{{allPosts.3.postImg.data}}) !important;">
                         </div>
                     </a>
                 </div>
@@ -304,7 +304,7 @@
         <div class="highlight-item-list-wrapper w-dyn-list">
             <div class="highlight-list w-dyn-items">
                 <div class="highlight-item w-dyn-item">
-                    <div style="background-image: url('/gallery/post-images/{{randomPost.postId}}.jpg')"
+                    <div style="background-image: url('data:{{randomPost.postImg.type}};base64,{{randomPost.postImg.data}}')"
                         class="highlight-item-block">
                         <div class="higlight-item-overlay">
                             <div class="container w-container">
@@ -350,7 +350,7 @@
                             <div class="item-list mobile-full-list w-dyn-items">
                                 <div class="item w-dyn-item">
                                     <div class="item-block large">
-                                        <a style="background-image: url('/gallery/post-images/{{fivePosts.0.postId}}.jpg') !important;"
+                                        <a style="background-image: url('data:{{fivePosts.0.postImg.type}};base64,{{fivePosts.0.postImg.data}}') !important;"
                                             href="/view-post/{{fivePosts.0.postId}}"
                                             class="item-image-block large w-inline-block">
                                             <div class="item-number"></div>
@@ -374,7 +374,7 @@
                             <div class="item-list mobile-full-list w-dyn-items w-row">
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
-                                        <a style="background-image: url('/gallery/post-images/{{fivePosts.1.postId}}.jpg') !important;"
+                                        <a style="background-image: url('data:{{fivePosts.1.postImg.type}};base64,{{fivePosts.1.postImg.data}}') !important;"
                                             href="/view-post/{{fivePosts.1.postId}}"
                                             class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
@@ -392,7 +392,7 @@
                                 </div>
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
-                                        <a style="background-image: url('/gallery/post-images/{{fivePosts.2.postId}}.jpg') !important;"
+                                        <a style="background-image: url('data:{{fivePosts.2.postImg.type}};base64,{{fivePosts.2.postImg.data}}') !important;"
                                             href="/view-post/{{fivePosts.2.postId}}"
                                             class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
@@ -410,7 +410,7 @@
                                 </div>
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
-                                        <a style="background-image: url('/gallery/post-images/{{fivePosts.3.postId}}.jpg') !important;"
+                                        <a style="background-image: url('data:{{fivePosts.3.postImg.type}};base64,{{fivePosts.3.postImg.data}}') !important;"
                                             href="/view-post/{{fivePosts.3.postId}}"
                                             class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
@@ -428,7 +428,7 @@
                                 </div>
                                 <div class="item small w-dyn-item w-col w-col-6">
                                     <div class="item-block in-list">
-                                        <a style="background-image: url('/gallery/post-images/{{fivePosts.4.postId}}.jpg') !important;"
+                                        <a style="background-image: url('data:{{fivePosts.4.postImg.type}};base64,{{fivePosts.4.postImg.data}}') !important;"
                                             href="/view-post/{{fivePosts.4.postId}}"
                                             class="item-image-block w-inline-block">
                                             <div class="item-number"></div>
@@ -473,7 +473,7 @@
                         {{#each shufflePosts}}
                         <div class="author-item w-dyn-item w-col w-col-4">
                             <div class="author-item-block">
-                                <div style="background-image: url('/gallery/post-images/{{this.postId}}.jpg') !important;"
+                                <div style="background-image: url('data:{{fivePosts.5.postImg.type}};base64,{{fivePosts.5.postImg.data}}') !important;"
                                     class="author-image-wrapper">
                                     <div class="author-title-overlay">
                                         <div class="author-item-name"></div>

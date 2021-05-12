@@ -82,7 +82,7 @@
                         {{this.postDate}}
                     </td>
                     <td data-title='Image'>
-                        <img style="max-width: 8em;height: auto;" src="/gallery/post-thumbnails/{{this.postId}}.jpg"
+                        <img style="max-width: 8em;height: auto;" src="data:{{this.postImg.type}};base64, {{this.postImg.data}}"
                             alt="No Image">
                     </td>
                     <td data-title='Rating'>
@@ -139,7 +139,7 @@
                         Image :
                     </dt>
                     <dd>
-                        <img style='margin-top:.6em;' src='/gallery/post-thumbnails/${post.postId}.jpg' >
+                        <img style='margin-top:.6em;' src='data:${post.postImg.type};base64, ${post.postImg.data}' >
                     </dd>
                     <dt>
                         Vehicle Name :

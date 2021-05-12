@@ -8,6 +8,11 @@
         font-size: 3em;
     }
 </style>
+{{!-- Filepond CDN --}}
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+<link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet" />
+{{!-- My styles --}}
 <link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
 <link href="/stylesheets/style2.css" rel="stylesheet" type="text/css">
 <link href="/stylesheets/style3.css" rel="stylesheet" type="text/css">
@@ -76,16 +81,11 @@
                         <div class="name">Background image</div>
                         <div class="value">
                             <div class="input-group js-input-file">
-                                <img style="display: none;padding-bottom: 1em;width: 80vw;height: auto;" id="imgPreiew"
-                                    alt="Preview">
-                                <div class="input-file" id="input_div">
-                                    <input class="input-file" type="file" name="postImg" accept="image/jpeg" id="file"
+                                <input class="input-file" type="file" name="postImg" accept="image/jpeg" id="file"
                                         required>
-                                </div>
-                                <label class="label--file" id="input_label" for="file">Choose JPG file</label>
                             </div>
                             <div class="label--desc">Upload your vehicle photo. Image must have HD quality. Max file
-                                size 50 MB</div>
+                                size 300 KB</div>
                         </div>
                     </div>
                     <input type="text" id="post-date" name="postDate" hidden>
@@ -123,30 +123,6 @@
 <script src="/js/javascript.js" type="text/javascript"></script>
 <script src="/js/add-post.js" type="text/javascript"></script>
 <script>
-    var _URL = window.URL || window.webkitURL;
-    $("#file").change(function (e) {
-        var file, img;
-        if ((file = this.files[0])) {
-            img = new Image();
-            img.onload = function () {
-                if (this.width >= 1280 && this.height >= 920) {
-                    document.getElementById('imgPreiew').src = _URL.createObjectURL(e.target.files[0]);
-                    $('#imgPreiew').css('display', 'block');
-                    $('#input_label').html(`Update picture`)
-                } else {
-                    alert("This picture isn't meet minimum resolution ( 1280x920 )")
-                    $('input_div').empty();
-                    $('input_div').append(`<input class="input-file" type="file" name="postImg" accept="image/jpeg" id="file" required>`)
-                }
-            };
-            img.onerror = function () {
-                alert("not a valid file: " + file.type);
-            };
-            img.src = _URL.createObjectURL(file);
-        }
-    });
-</script>
-<script>
     window.onload = () => {
         ratingStar('1star');
         $('#post-date').val(moment().format('LLLL'));
@@ -169,8 +145,30 @@
         }
     }
 </script>
+{{!-- Filepond cdn --}}
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<style>
+    .filepond--credits {
+        display: none;
+    }
+</style>
 <script>
-    $('#submitForm').hover(()=>{
-        checkInputFile();
+    // FilePond Area
+    FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.registerPlugin(FilePondPluginFileEncode);
+    FilePond.registerPlugin(FilePondPluginFileValidateSize);
+    FilePond.create(document.querySelector('input[type="file"]'), {
+        allowImagePreview: true,
+        acceptedFileTypes: ['image/jpg', 'image/jpeg'],
+        fileValidateTypeDetectType: (source, type) => new Promise((resolve, reject) => {
+            // Do custom type detection here and return with promise
+            resolve(type);
+        }),
+        maxFileSize: "300KB"
     })
 </script>
