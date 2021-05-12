@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var adminFunctions = require("../functions/admin-functions");
 const { v4: uuidv4 } = require("uuid");
-const sharp = require("sharp");
 const fs = require("fs");
 
 var verifyAdminLogin = (req, res, next) => {
