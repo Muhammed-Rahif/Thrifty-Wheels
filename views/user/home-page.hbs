@@ -472,7 +472,7 @@
                     <div class="authors-list w-dyn-items w-row">
                         {{#each shufflePosts}}
                         <div class="author-item w-dyn-item w-col w-col-4">
-                            <div class="author-item-block">
+                            <a href="/view-post/{{this.postId}}" class="author-item-block">
                                 <div style="background-image: url('data:{{this.postImg.type}};base64,{{this.postImg.data}}') !important;"
                                     class="author-image-wrapper">
                                     <div class="author-title-overlay">
@@ -485,7 +485,7 @@
                                     </p>
                                     <!--<a href="#" class="button outline-button w-button">View my Reviews</a></div>-->
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         {{/each}}
                     </div>
