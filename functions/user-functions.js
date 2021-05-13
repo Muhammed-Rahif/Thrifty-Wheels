@@ -55,8 +55,9 @@ module.exports = {
             let fivePosts = await db.get().collection(collections.POSTS_COLLECTION).find({}).toArray();
             if (fivePosts.length>=6) {
                 fivePosts = getRandomObjectsByNumber(fivePosts, 5);
+                resolve(fivePosts);
             } else {
-                resolve(fivePosts)
+                resolve(fivePosts);
             }
         })
     },
