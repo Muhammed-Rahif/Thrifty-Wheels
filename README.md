@@ -17,6 +17,6 @@
     ·
     <a href="https://github.com/Muhammed-Rahif/Thrifty-Wheels-Review-App/issues/">Report Bug</a>
     ·
-    <a href="https://github.com/Muhammed-Rahif/Thrifty-Wheels-Review-App/issues/">Request Feature</a>
+    <a href="https://github.com/Muhammed-Rahif/Thrifty-Wheels-Review-App/pulls">Contribute to Project</a>
   </p>
 </p>
