@@ -6,6 +6,7 @@ var logger = require('morgan');
 var http = require('http').Server(app);
 var db = require('./config/connection');
 var session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
@@ -38,8 +39,9 @@ app.use(fileUpload());
 // Use the session middleware
 app.use(
   session({
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/ThriftyWheels' }),
     secret: "secret key",
-    cookie: { maxAge: 60000 },
+    cookie: { maxAge: 1296000000 },
   })
 );
 
