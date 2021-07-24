@@ -20,3 +20,13 @@
     <a href="https://github.com/Muhammed-Rahif/Thrifty-Wheels-Review-App/pulls">Contribute to Project</a>
   </p>
 </p>
+<hr />
+
+
+## 💻️ Screenshots
+<div align="center">
+  <img width="49.5%" src="https://user-images.githubusercontent.com/73386156/126862530-cf2d595b-f374-40db-b494-8bae04a8dd4c.png" alt="Shot 1">
+  <img width="49.5%" src="https://user-images.githubusercontent.com/73386156/126862545-3d0839c9-18a2-4267-8774-6c93ac79f0c4.png" alt="Shot 2">
+  <img width="49.5%" src="https://user-images.githubusercontent.com/73386156/126862548-7cbca18a-a02e-4ad8-b685-2dff19ef877e.png" alt="Shot 3">
+  <img width="49.5%" src="https://user-images.githubusercontent.com/73386156/126862705-8228522a-e773-4513-a02d-f42bbdcfd2b3.png" alt="Shot 4">
+</div>
